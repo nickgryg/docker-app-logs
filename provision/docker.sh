@@ -8,7 +8,6 @@ yum-config-manager \
     https://download.docker.com/linux/centos/docker-ce.repo
 yum install -y docker-ce
 
-groupadd docker
 usermod -aG docker vagrant
 
 systemctl enable docker
