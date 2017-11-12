@@ -1,10 +1,11 @@
-FROM alpine:3.6 
+FROM debian:jessie
 
 MAINTAINER Nickolay Grygoriev <nickgryg@gmail.com>
 
-RUN apk add --no-cache rsyslog
+RUN apt-get update && apt-get install -y --no-install-recommends rsyslog rsyslog-mongodb
 
 COPY configs/rsyslog.conf /etc/rsyslog.conf
+COPY configs/mongodb.conf /etc/rsyslog.d/mongodb.conf
 
 EXPOSE 514/tcp 514/udp
 

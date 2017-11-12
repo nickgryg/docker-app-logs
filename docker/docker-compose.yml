@@ -22,3 +22,10 @@ services:
     image: registry:5000/rsyslog-server
     ports:
       - "514:514/udp"
+    depends_on:
+      - "mongo"
+
+  mongo:
+    image: mongo
+    ports:
+      - "27017:27017"
